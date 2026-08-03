@@ -2,18 +2,19 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>孟宇轩 — Electronics / Embedded / Interaction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>孟宇轩 | Electronics / Embedded / Interaction</title>
   <meta name="description" content="北航电子信息专业。喜欢把传感器、代码和真实世界连接起来，在硬件限制里寻找更聪明的解法，也把工程系统做得有一点诗意。">
-  <meta property="og:title" content="孟宇轩 — Electronics / Embedded / Interaction">
+  <meta property="og:title" content="孟宇轩 | Electronics / Embedded / Interaction">
   <meta property="og:description" content="把想法做成可用的东西。软硬件协作、快速原型、交互实验。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://farly.me">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%B0%3C/text%3E%3C/svg%3E">
-  <script type="module" crossorigin src="./assets/index-yH-_J8hz.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BRxFaVz5.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%2306090c'/%3E%3Cpath d='M22 72V28h12l16 25 16-25h12v44H66V47L50 70 34 47v25Z' fill='%2363d7e8'/%3E%3C/svg%3E">
+  <script type="module" crossorigin src="./assets/index-DUzgAvIq.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DB4GKUlb.css">
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">跳到主要内容</a>
   <div class="noise-overlay" aria-hidden="true"></div>
   <div class="scanlines" aria-hidden="true"></div>
 
@@ -36,39 +37,58 @@
     </div>
   </nav>
 
-  <header class="hero" id="hero">
-    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="hero-vignette" aria-hidden="true"></div>
-    <div class="hero-content">
-      <p class="hero-label" data-reveal>孟宇轩 / Electronics / Embedded / Interaction</p>
-      <h1 class="hero-title" data-reveal>
-        <span class="line">把想法</span>
-        <span class="line highlight"><em>做成</em></span>
-        <span class="line">可用的东西。</span>
-      </h1>
-      <p class="hero-desc" data-reveal>
-        北京航空航天大学电子信息专业大二学生。喜欢把传感器、代码和真实世界连接起来，
-        在硬件限制里寻找更聪明的解法，也把工程系统做得有一点诗意。
-      </p>
-      <div class="hero-meta" data-reveal>
-        <div class="meta-chip">
-          <span class="meta-dot" aria-hidden="true"></span>
-          <span class="meta-key">CURRENT MODE</span>
-          <span class="meta-val">MAKE / TEST / ITERATE</span>
+  <main id="mainContent">
+    <header class="hero" id="hero">
+      <div class="hero-stage" id="flightStage">
+        <canvas class="flight-canvas" id="flightCanvas" aria-hidden="true"></canvas>
+        <div class="hero-vignette" aria-hidden="true"></div>
+
+        <div class="scene-loading" aria-live="polite">
+          <span class="scene-loading-line" aria-hidden="true"></span>
+          <span>正在初始化飞行场景</span>
         </div>
-        <div class="meta-chip">
-          <span class="meta-dot" aria-hidden="true"></span>
-          <span class="meta-key">FOCUS</span>
-          <span class="meta-val">SOFTWARE × HARDWARE</span>
+
+        <div class="flight-fallback" role="img" aria-label="雷达信号与四旋翼飞行器示意">
+          <strong>RADAR / FLIGHT</strong>
+          <span>信号已锁定，飞行系统待命。</span>
+        </div>
+
+        <div class="hero-content">
+          <p class="hero-label">孟宇轩 / Electronics / Embedded / Interaction</p>
+          <h1 class="hero-title">
+            <span class="line">把想法<span class="highlight">做成</span></span>
+            <span class="line">可用的东西。</span>
+          </h1>
+          <p class="hero-desc">
+            北航电子信息专业学生。把传感器、代码和真实世界连接起来，让工程系统真正工作。
+          </p>
+          <a class="hero-action" href="#projects">查看项目</a>
+        </div>
+
+        <div class="story-beats" aria-live="polite">
+          <article class="story-beat active" data-beat="0" aria-hidden="false">
+            <h2>雷达建立坐标</h2>
+            <p>毫米波回波被解析为距离、方位和稳定航迹。</p>
+            <span class="story-source">stm32-mmwave-radar-demo</span>
+          </article>
+          <article class="story-beat" data-beat="1" aria-hidden="true">
+            <h2>航迹开始收敛</h2>
+            <p>滤波后的目标点抬升为三维状态，不再只是屏幕上的亮点。</p>
+            <span class="story-source">TRACKING / SENSOR FUSION</span>
+          </article>
+          <article class="story-beat" data-beat="2" aria-hidden="true">
+            <h2>信号组成飞行器</h2>
+            <p>点云重排为四旋翼结构，传感器、机臂和旋翼逐一就位。</p>
+            <span class="story-source">AeroEdu / THREE.JS</span>
+          </article>
+          <article class="story-beat" data-beat="3" aria-hidden="true">
+            <h2>控制进入飞行</h2>
+            <p>飞行器沿 PID 航迹离开雷达，页面进入真实项目档案。</p>
+            <span class="story-source">FLIGHT CONTROL / PID</span>
+          </article>
         </div>
       </div>
-      <div class="hero-signals" data-reveal>
-        <div class="signal-item">signal: <span class="ok">stable</span></div>
-        <div class="signal-item">latency: <span class="ok">low</span></div>
-        <div class="signal-item">ideas: <span class="ok">active</span></div>
-      </div>
-    </div>
-  </header>
+    </header>
 
   <section class="stats" id="stats">
     <div class="container">
@@ -91,7 +111,6 @@
   <section class="selected-work" id="projects">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-id">002</span>
         <h2 class="section-title">SELECTED WORK</h2>
         <p class="section-subtitle">
           <span class="highlight">项目，是我 <em>思考的证据。</em></span><br>
@@ -165,7 +184,6 @@
   <section class="github-section" id="github">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-id">003</span>
         <h2 class="section-title">GITHUB PROJECTS</h2>
         <p class="section-subtitle">
           <span class="highlight">代码仓库 <em>工程档案墙</em></span><br>
@@ -184,8 +202,8 @@
       </div>
 
       <div class="gh-category" data-reveal>
-        <h3 class="gh-cat-title"><span class="gh-cat-dot exp" aria-hidden="true"></span>Browser Experiments / Games</h3>
-        <div class="gh-grid" id="ghExp"></div>
+        <h3 class="gh-cat-title"><span class="gh-cat-dot infra" aria-hidden="true"></span>Site / Infrastructure</h3>
+        <div class="gh-grid" id="ghInfra"></div>
       </div>
 
       <div class="gh-category forks" data-reveal>
@@ -198,7 +216,6 @@
   <section class="toolkit" id="stack">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-id">004</span>
         <h2 class="section-title">TOOLKIT / STACK</h2>
         <p class="section-subtitle">
           <span class="highlight">工具是手，<em>问题才是方向。</em></span><br>
@@ -251,7 +268,6 @@
   <section class="more-signals" id="about">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-id">005</span>
         <h2 class="section-title">MORE SIGNALS</h2>
         <p class="section-subtitle">
           <span class="highlight">还在持续 <em>发生的事。</em></span><br>
@@ -298,7 +314,6 @@
   <section class="principles" id="principles">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-id">006</span>
         <h2 class="section-title">WORKING PRINCIPLES</h2>
         <p class="section-subtitle">
           <span class="highlight">先让它 <em>跑起来。</em></span><br>
@@ -329,7 +344,6 @@
   <section class="contact" id="contact">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-id">007</span>
         <h2 class="section-title">OPEN CHANNEL</h2>
         <p class="section-subtitle">
           <span class="highlight">一起做点 <em>有意思的事。</em></span><br>
@@ -342,6 +356,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container">
